@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desafio frontend</title>
+    <style>
+        .box {background-color: red;
+            
+            width: 50px;
+            height: 50px;
+        }
+
+        .boxs {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <section id="palavra" >
+            <span id="letra_P">_</span>
+            <span id="letra_A">_</span>
+            <span id="letra_T">_</span>
+            <span id="letra_O">_</span>
+        </section>
+        <section class="boxs">
+            <div id="vida_1" class="box"></div>
+            <div id="vida_2" class="box"></div>
+            <div id="vida_3" class="box"></div>
+        </section>
+        <section id="alfabeto">
+            <button id="A" class="letra" onclick="btnClick()">A</button>
+            <button id="B" class="letra" onclick="btnClick()">B</button>
+            <button id="C" class="letra" onclick="btnClick()">C</button>
+            <button id="D" class="letra" onclick="btnClick()">D</button>
+            <button id="E" class="letra" onclick="btnClick()">E</button>
+            <button id="F" class="letra" onclick="btnClick()">F</button>
+            <button id="G" class="letra" onclick="btnClick()">G</button>
+            <button id="H" class="letra" onclick="btnClick()">H</button>
+            <button id="I" class="letra" onclick="btnClick()">I</button>
+            <button id="J" class="letra" onclick="btnClick()">J</button>
+            <button id="K" class="letra" onclick="btnClick()">K</button>
+            <button id="L" class="letra" onclick="btnClick()">L</button>
+            <button id="M" class="letra" onclick="btnClick()">M</button>
+            <button id="N" class="letra" onclick="btnClick()">N</button>
+            <button id="O" class="letra" onclick="btnClick()">O</button>
+            <button id="P" class="letra" onclick="btnClick()">P</button>
+            <button id="Q" class="letra" onclick="btnClick()">Q</button>
+            <button id="R" class="letra" onclick="btnClick()">R</button>
+            <button id="S" class="letra" onclick="btnClick()">S</button>
+            <button id="T" class="letra" onclick="btnClick()">T</button>
+            <button id="U" class="letra" onclick="btnClick()">U</button>
+            <button id="V" class="letra" onclick="btnClick()">V</button>
+            <button id="W" class="letra" onclick="btnClick()">W</button>
+            <button id="X" class="letra" onclick="btnClick()">X</button>
+            <button id="Y" class="letra" onclick="btnClick()">Y</button>
+            <button id="Z" class="letra" onclick="btnClick()">Z</button>                        
+        </section>
+    </main>
+</body>
+
+<script>
+    const palavraCompleta = ["P","A","T","O"]
+    let vida = 3
+    let palavra = 0
+
+    function btnClick() {
+        console.log(event.target.id);
+        
+        let is = true;
+        palavraCompleta.map(letra=>{
+            if(event.target.id === letra) {
+                event.target.style = "color: #0a0;"
+                document.getElementById(`letra_${event.target.id}`).textContent = letra
+                is = false
+            }
+        })
+
+        if(is) {
+            event.target.style = "color: #f00;"
+            document.getElementById(`vida_${vida}`).style = "background-color: #fff;"
+            vida = vida - 1
+        } else {
+            palavra = palavra + 1
+            console.log(palavra);
+        }
+
+        if(vida <= 0) {
+            document.getElementById('main').innerHTML = 'você perdeu !!!'
+        }
+
+        if(palavra === 4) {
+            document.getElementById('main').innerHTML = 'você ganhou !!!'
+        }
+        
+    }
+</script>
+
+</html>
