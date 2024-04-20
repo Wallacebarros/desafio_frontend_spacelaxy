@@ -4,32 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>desafio frontend</title>
-    <style>
-        .box {background-color: red;
-            
-            width: 50px;
-            height: 50px;
-        }
-
-        .boxs {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main id="main">
+        <section id="boxs">
+            <div id="vida_1" class="box"></div>
+            <div id="vida_2" class="box"></div>
+            <div id="vida_3" class="box"></div>
+        </section>
         <section id="palavra" >
             <span id="letra_P">_</span>
             <span id="letra_A">_</span>
             <span id="letra_T">_</span>
             <span id="letra_O">_</span>
-        </section>
-        <section class="boxs">
-            <div id="vida_1" class="box"></div>
-            <div id="vida_2" class="box"></div>
-            <div id="vida_3" class="box"></div>
         </section>
         <section id="alfabeto">
             <button id="A" class="letra" onclick="btnClick()">A</button>
@@ -61,42 +49,5 @@
         </section>
     </main>
 </body>
-
-<script>
-    const palavraCompleta = ["P","A","T","O"]
-    let vida = 3
-    let palavra = 0
-
-    function btnClick() {
-        console.log(event.target.id);
-        
-        let is = true;
-        palavraCompleta.map(letra=>{
-            if(event.target.id === letra) {
-                event.target.style = "color: #0a0;"
-                document.getElementById(`letra_${event.target.id}`).textContent = letra
-                is = false
-            }
-        })
-
-        if(is) {
-            event.target.style = "color: #f00;"
-            document.getElementById(`vida_${vida}`).style = "background-color: #fff;"
-            vida = vida - 1
-        } else {
-            palavra = palavra + 1
-            console.log(palavra);
-        }
-
-        if(vida <= 0) {
-            document.getElementById('main').innerHTML = 'você perdeu !!!'
-        }
-
-        if(palavra === 4) {
-            document.getElementById('main').innerHTML = 'você ganhou !!!'
-        }
-        
-    }
-</script>
-
+<script src="script.js"></script>
 </html>
