@@ -25,12 +25,19 @@ main {
 
 #palavra {
     color: aliceblue;
-    margin-top: 15vh;
+    margin-top: 5vh;
     margin-bottom: 15vh;
 }
 
 #palavra > span {
     font-size: 70px;
+}
+
+#categoria {
+    color: aliceblue;
+    margin-top: 10vh;
+    font-weight: bold;
+    font-size: xx-large;
 }
 
 #alfabeto {
